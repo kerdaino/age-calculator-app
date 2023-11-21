@@ -18,7 +18,7 @@ body {
 
 main {
     background: hsl(0, 0%, 100%);
-    width: 60%;
+    width: 70%;
     margin: auto;
     padding: 25px;
     border-radius: 10px 10px 100px 10px;
@@ -37,6 +37,9 @@ header h1 {
     color: hsl(0, 1%, 44%);
 }
 
+.error-header h1 {
+    color: hsl(0, 100%, 67%);
+}
 
 h2 {
     font-size: 40px;
@@ -61,10 +64,24 @@ span {
     transition: 0.3s;
 }
 
-.input:hover,.input:active,.input:focus,.input:not(:placeholder-shown){
+.input:hover,
+.input:active,
+.input:focus,
+.input:not(:placeholder-shown) {
     border: solid 2px hsl(259, 100%, 65%);
-    color:hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 8%);
     cursor: pointer;
+}
+
+.input.error {
+    border-color: hsla(0, 100%, 67%, 0.3);
+}
+
+.error-message {
+    color: hsl(0, 100%, 67%);
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 10px;
 }
 
 .img-style {
@@ -81,11 +98,11 @@ span {
 }
 
 
-img{
+img {
     width: 90%;
 }
 
-button{
+button {
     background: hsl(259, 100%, 65%);
     padding: 5px;
     border-radius: 25px;
@@ -97,9 +114,12 @@ button{
     align-items: center;
 }
 
-button:hover,button:active,button:focus{
+button:hover,
+button:active,
+button:focus {
     cursor: pointer;
-    background: hsl(0, 0%, 8%);;
+    background: hsl(0, 0%, 8%);
+    ;
 }
 
 .attribution {

@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('ageForm');
+  const calculateButton = document.getElementById('calculateButton');
   const inputs = document.querySelectorAll('.input');
   const ageResults = document.querySelectorAll('section h2 span');
   const header = document.querySelector('header');
 
-  form.addEventListener('submit', function (event) {
+  calculateButton.addEventListener('click', function (event) {
     event.preventDefault();
 
     // Reset age results and clear error styles
@@ -19,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
         errorMessage.remove();
       }
     });
-    
-    // Remove the 'error' class from the header
-    header.classList.remove('error-header');
 
+    header.querySelectorAll('h1').forEach(h1 => {
+      h1.style.color = 'hsl(0, 100%, 67%)';
+    });
 
     // Validate form inputs
     let isValid = true;
@@ -48,14 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (isNaN(day) || isNaN(month) || isNaN(year) || day < 1 || day > 31 || month < 1 || month > 12) {
       isValid = false;
 
-      // Add class to input elements with NaN values
       inputs.forEach((input, index) => {
         if (isNaN(parseInt(input.value, 10))) {
           input.classList.add('error');
         }
       });
 
-      // Add class to input elements for specific condition
       if (isNaN(day) || day < 1 || day > 31) {
         inputs[0].classList.add('error');
       }
@@ -65,31 +64,22 @@ document.addEventListener('DOMContentLoaded', function () {
       if (isNaN(year) || year < 1000 || year > 2023) {
         inputs[2].classList.add('error');
       }
-
-      // Add the 'error-header' class to the header
-      header.classList.add('error-header');
     }
 
     const currentDate = new Date();
-    const inputDate = new Date(year, month - 1, day); // Note: months are zero-based in JavaScript
+    const inputDate = new Date(year, month - 1, day);
 
     if (inputDate > currentDate) {
       isValid = false;
       if (isNaN(day) || day < 1 || day > 31) {
-        inputs[0].classList.add('error');
         showErrorMessage(inputs[0], 'Must be a valid day.');
       }
       if (isNaN(month) || month < 1 || month > 12) {
-        inputs[1].classList.add('error');
         showErrorMessage(inputs[1], 'Must be a valid month.');
       }
       if (isNaN(year) || year < 1000 || year > 2023) {
-        inputs[2].classList.add('error');
         showErrorMessage(inputs[2], 'Must be in the Past.');
       }
-
-      // Add the 'error' class to the header
-      header.classList.add('error-header');
     }
 
     if (isValid) {
@@ -105,6 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
       ageResults[1].textContent = months;
       ageResults[2].textContent = days;
     }
+  });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Trigger the click event of the calculateButton when the form is submitted
+    calculateButton.click();
   });
 
   function showErrorMessage(input, message) {

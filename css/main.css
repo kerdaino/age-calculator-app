@@ -18,15 +18,13 @@ body {
 
 main {
     background: hsl(0, 0%, 100%);
-    width: 70%;
     margin: auto;
     padding: 25px;
-    border-radius: 10px 10px 100px 10px;
+    border-radius: 15px 15px 100px 15px;
 }
 
 header {
     display: flex;
-    width: 90%;
 }
 
 header h1 {
@@ -37,9 +35,6 @@ header h1 {
     color: hsl(0, 1%, 44%);
 }
 
-.error-header h1 {
-    color: hsl(0, 100%, 67%);
-}
 
 h2 {
     font-size: 40px;
@@ -88,9 +83,11 @@ span {
     display: flex;
     align-items: center;
     width: 100%;
+    margin: 20px 0;
 }
 
 .vertical {
+    position: relative;
     height: 1px;
     border: solid 1px hsl(0, 0%, 86%);
     margin: 2px 0;
@@ -103,15 +100,16 @@ img {
 }
 
 button {
+    position: absolute;
     background: hsl(259, 100%, 65%);
     padding: 5px;
     border-radius: 25px;
     border: none;
     width: 50px;
     height: 45px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 button:hover,
@@ -130,4 +128,21 @@ button:focus {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 600px) {
+    main{
+        width: 70%;
+    }
+    
+    header{
+        width: 90%;
+    }
+
+    .vertical {
+        height: 1px;
+        border: solid 1px hsl(0, 0%, 86%);
+        margin: 2px 0;
+        width: 100%;
+    }
 }

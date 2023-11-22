@@ -61,8 +61,7 @@ span {
 
 .input:hover,
 .input:active,
-.input:focus,
-.input:not(:placeholder-shown) {
+.input:focus{
     border: solid 2px hsl(259, 100%, 65%);
     color: hsl(0, 0%, 8%);
     cursor: pointer;
@@ -82,12 +81,14 @@ span {
 .img-style {
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     margin: 20px 0;
 }
 
 .vertical {
     position: relative;
+    flex-grow: 1;
     height: 1px;
     border: solid 1px hsl(0, 0%, 86%);
     margin: 2px 0;
@@ -96,20 +97,21 @@ span {
 
 
 img {
-    width: 90%;
+    width: 50%;
 }
 
 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     background: hsl(259, 100%, 65%);
     padding: 5px;
     border-radius: 25px;
     border: none;
     width: 50px;
-    height: 45px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    height: 50px;
+    transform: translateY(-40%);
 }
 
 button:hover,
@@ -127,16 +129,24 @@ button:focus {
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: hsl(0, 100%, 67%);
 }
 
 @media screen and (min-width: 600px) {
-    main{
+    main {
         width: 70%;
     }
-    
-    header{
+
+    header {
         width: 90%;
+    }
+
+    .img-style {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 
     .vertical {
@@ -144,5 +154,9 @@ button:focus {
         border: solid 1px hsl(0, 0%, 86%);
         margin: 2px 0;
         width: 100%;
+    }
+
+    button {
+        transform: translateY(5%);
     }
 }

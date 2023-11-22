@@ -5,6 +5,26 @@ document.addEventListener('DOMContentLoaded', function () {
   const ageResults = document.querySelectorAll('section h2 span');
   const header = document.querySelector('header');
 
+  // Add event listener to the entire document
+  document.addEventListener('click', function (event) {
+    // Check if the clicked element is not the calculate button or any input field
+    if (event.target !== calculateButton && !Array.from(inputs).includes(event.target)) {
+      // Clear out error styles
+      inputs.forEach(input => {
+        input.classList.remove('error');
+        const errorMessage = input.parentElement.querySelector('.error-message');
+        if (errorMessage) {
+          errorMessage.remove();
+        }
+      });
+
+      header.querySelectorAll('h1').forEach(h1 => {
+        h1.style.color = 'hsl(0, 0%, 8%)';
+      });
+    }
+  });
+
+
   calculateButton.addEventListener('click', function (event) {
     event.preventDefault();
 
@@ -21,10 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    header.querySelectorAll('h1').forEach(h1 => {
-      h1.style.color = 'hsl(0, 100%, 67%)';
-    });
-
     // Validate form inputs
     let isValid = true;
 
@@ -32,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (input.value.trim() === '') {
         input.classList.add('error');
         showErrorMessage(input, 'This field is required.');
+        header.querySelectorAll('h1').forEach(h1 => {
+          h1.style.color = 'hsl(0, 100%, 67%)';
+        });
         isValid = false;
       } else {
         input.classList.remove('error');
@@ -73,6 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
       isValid = false;
       if (isNaN(day) || day < 1 || day > 31) {
         showErrorMessage(inputs[0], 'Must be a valid day.');
+        header.querySelectorAll('h1').forEach(h1 => {
+          h1.style.color = 'hsl(0, 100%, 67%)';
+        });
       }
       if (isNaN(month) || month < 1 || month > 12) {
         showErrorMessage(inputs[1], 'Must be a valid month.');

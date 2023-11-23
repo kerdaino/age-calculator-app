@@ -1,5 +1,7 @@
+/* Import the 'Poppins' font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
 
+/* Apply a basic styling reset to all elements */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,6 +9,7 @@
     font: inherit;
 }
 
+/* Style for the entire body */
 body {
     display: grid;
     min-height: 100vh;
@@ -16,6 +19,7 @@ body {
     background: hsl(0, 0%, 94%);
 }
 
+/* Style for the main content container */
 main {
     background: hsl(0, 0%, 100%);
     margin: auto;
@@ -23,10 +27,12 @@ main {
     border-radius: 15px 15px 100px 15px;
 }
 
+/* Style for the header section */
 header {
     display: flex;
 }
 
+/* Style for the header's h1 element */
 header h1 {
     font-size: 11px;
     font-weight: 700;
@@ -35,7 +41,7 @@ header h1 {
     color: hsl(0, 1%, 44%);
 }
 
-
+/* Style for h2 elements */
 h2 {
     font-size: 40px;
     font-style: italic;
@@ -43,14 +49,17 @@ h2 {
     color: hsl(0, 0%, 8%);
 }
 
+/* Style for spans */
 span {
     color: hsl(259, 100%, 65%);
 }
 
+/* Common styling for layout elements */
 .layout {
     margin: 10px 0;
 }
 
+/* Style for input fields */
 .input {
     width: 60%;
     padding: 5px;
@@ -59,18 +68,21 @@ span {
     transition: 0.3s;
 }
 
+/* Hover, active, and focus styles for input fields */
 .input:hover,
 .input:active,
-.input:focus{
+.input:focus {
     border: solid 2px hsl(259, 100%, 65%);
     color: hsl(0, 0%, 8%);
     cursor: pointer;
 }
 
+/* Style for error state of input fields */
 .input.error {
     border-color: hsla(0, 100%, 67%, 0.3);
 }
 
+/* Style for error messages */
 .error-message {
     color: hsl(0, 100%, 67%);
     margin-top: 5px;
@@ -78,6 +90,7 @@ span {
     font-size: 10px;
 }
 
+/* Style for image container */
 .img-style {
     display: flex;
     align-items: center;
@@ -86,6 +99,7 @@ span {
     margin: 20px 0;
 }
 
+/* Style for vertical line separator */
 .vertical {
     position: relative;
     flex-grow: 1;
@@ -95,11 +109,12 @@ span {
     width: 100%;
 }
 
-
+/* Style for images */
 img {
     width: 50%;
 }
 
+/* Style for buttons */
 button {
     display: flex;
     justify-content: center;
@@ -114,24 +129,27 @@ button {
     transform: translateY(-40%);
 }
 
+/* Hover, active, and focus styles for buttons */
 button:hover,
 button:active,
 button:focus {
     cursor: pointer;
     background: hsl(0, 0%, 8%);
-    ;
 }
 
+/* Style for attribution text */
 .attribution {
     font-size: 16px;
     text-align: center;
     margin: 15px;
 }
 
+/* Style for links in attribution */
 .attribution a {
     color: hsl(0, 100%, 67%);
 }
 
+/* Media query for screens with a minimum width of 600px */
 @media screen and (min-width: 600px) {
     main {
         width: 70%;
@@ -141,6 +159,7 @@ button:focus {
         width: 90%;
     }
 
+    /* Adjust styles for image container in larger screens */
     .img-style {
         display: flex;
         flex-direction: row;
@@ -149,6 +168,7 @@ button:focus {
         justify-content: flex-end;
     }
 
+    /* Adjust styles for vertical line separator in larger screens */
     .vertical {
         height: 1px;
         border: solid 1px hsl(0, 0%, 86%);
@@ -156,6 +176,7 @@ button:focus {
         width: 100%;
     }
 
+    /* Adjust button position in larger screens */
     button {
         transform: translateY(5%);
     }
